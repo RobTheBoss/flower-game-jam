@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class InsectScript : MonoBehaviour
@@ -9,6 +10,7 @@ public class InsectScript : MonoBehaviour
     [SerializeField] float minimumDistance;
 
     private GameManager walletSystem;
+    private FlowerScript flowerScript;
 
     public Transform target;
     private Rigidbody2D rb;
@@ -20,6 +22,7 @@ public class InsectScript : MonoBehaviour
     {
         target = GameObject.Find("FlowerPlaceholder").transform;
         walletSystem = GameObject.Find("GameManager").GetComponent<GameManager>();
+        flowerScript = GameObject.Find("FlowerPlaceholder").GetComponent<FlowerScript>();
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -47,8 +50,14 @@ public class InsectScript : MonoBehaviour
         {
             walletSystem.insectParts++;
             Destroy(this.gameObject);
-            
-            //add 1 insect part to total
+            //add 1 insect part to total and dies
+        }
+        if (collision.tag == "Flower")
+        {
+            new WaitForSeconds(5);
+            flowerScript.growthProgress -= -10.0f;
+            Destroy(this.gameObject);
+            //touches the flower, waits 5 seconds and lowers the Growth Progress by 10
         }
     }
 }
