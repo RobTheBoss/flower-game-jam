@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandScript : MonoBehaviour
+public class FlowerScript : MonoBehaviour
 {
     private bool inBounds = false;
+    public float growthProgress = 0.0f;
     [SerializeField] GameManager gm;
 
     void Update()
@@ -17,7 +18,7 @@ public class StandScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            inBounds = true;
+           inBounds = true;
         }
     }
 
@@ -31,10 +32,11 @@ public class StandScript : MonoBehaviour
 
     private void Interact()
     {
-        if (gm.insectParts <= 0) return;
+        if (gm.fertilizier <= 0) return;
 
-        gm.insectParts -= 1;
-        gm.fertilizier += 1;
+        gm.fertilizier -= 1;
         gm.UpdateHud();
+
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 2.0f, transform.localScale.z);
     }
 }
