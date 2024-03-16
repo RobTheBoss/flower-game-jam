@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float jumpForce;
     [SerializeField] float speed;
+    [SerializeField] Transform groundCheck;
     private Rigidbody2D rb;
     float xInput;
     bool canJump = false;
@@ -25,8 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
+            if (!OnGround()) 
+                return;
+
             canJump = true;
         }
+
+        Debug.DrawRay(groundCheck.transform.position, Vector2.down * 0.05f);
     }
 
     private void FixedUpdate()
@@ -43,5 +49,27 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+
+    private bool OnGround()
+    {
+
+
+        //RaycastHit2D hit;
+        if (Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.05f))
+        {
+            Debug.Log("hit");
+            return true;
+        }
+        else
+        {
+            Debug.Log("did not hit");
+            return false;
+        }
+
+        //if (hit != null)
+        //    return true;
+        //else
+        //    return false;
     }
 }
