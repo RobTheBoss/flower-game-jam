@@ -55,23 +55,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool OnGround()
     {
-
-
-        //RaycastHit2D hit;
         if (Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.05f, groundMask))
         {
-            Debug.Log("hit");
             return true;
         }
         else
         {
-            Debug.Log("did not hit");
             return false;
         }
-
-        //if (hit != null)
-        //    return true;
-        //else
-        //    return false;
     }
 }

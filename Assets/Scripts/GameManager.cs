@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int insectParts = 0;
-    private int fertilizier = 0;
+    [SerializeField] TMPro.TextMeshProUGUI fertilizerAmountText;
+    [SerializeField] TMPro.TextMeshProUGUI insectsAmountText;
+
+    public int insectParts = 0;
+    public int fertilizier = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateHud();
     }
 
     // Update is called once per frame
@@ -19,5 +23,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    public void UpdateHud()
+    {
+        fertilizerAmountText.text = fertilizier.ToString();
+        insectsAmountText.text = insectParts.ToString();
+    }
 }
