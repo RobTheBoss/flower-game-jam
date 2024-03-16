@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] Transform groundCheck;
     private Rigidbody2D rb;
+    private SpriteRenderer playerSprite;
+
     float xInput;
     bool canJump = false;
 
@@ -18,13 +20,18 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        playerSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         xInput = Input.GetAxisRaw("Horizontal");
+        if (xInput < 0)
+            playerSprite.flipX = true;
+        else if (xInput > 0)
+            playerSprite.flipX = false;
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
