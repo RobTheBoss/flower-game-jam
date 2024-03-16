@@ -8,6 +8,8 @@ public class InsectScript : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float minimumDistance;
 
+    private GameManager walletSystem;
+
     public Transform target;
     private Rigidbody2D rb;
 
@@ -16,8 +18,8 @@ public class InsectScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("TargetFollowTest").transform;
-        //FindObjectOfType<PlayerMovement>().transform;
+        target = GameObject.Find("FlowerPlaceholder").transform;
+        walletSystem = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>(); 
     }
 
@@ -43,7 +45,9 @@ public class InsectScript : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            walletSystem.insectParts++;
             Destroy(this.gameObject);
+            
             //add 1 insect part to total
         }
     }
