@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthProgress: 0
-  gm: {fileID: 0}
+  gm: {fileID: 2137046036}
 --- !u!61 &441775421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39840839926b72f439e7e17ae337c2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  gm: {fileID: 2137046036}
 --- !u!61 &915363537
 BoxCollider2D:
   m_ObjectHideFlags: 0
