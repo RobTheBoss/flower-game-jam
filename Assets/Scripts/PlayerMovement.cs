@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float xInput;
     bool canJump = false;
 
+    [SerializeField] LayerMask groundMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //RaycastHit2D hit;
-        if (Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.05f))
+        if (Physics2D.Raycast(groundCheck.transform.position, Vector2.down, 0.05f, groundMask))
         {
             Debug.Log("hit");
             return true;
