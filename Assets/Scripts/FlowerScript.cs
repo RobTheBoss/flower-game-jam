@@ -7,6 +7,7 @@ public class FlowerScript : MonoBehaviour
     private bool inBounds = false;
     public float growthProgress = 0.0f;
     [SerializeField] GameManager gm;
+    public Transform topOfFlower;
 
     void Update()
     {
@@ -37,6 +38,6 @@ public class FlowerScript : MonoBehaviour
         gm.fertilizier -= 1;
         gm.UpdateHud();
 
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 2.0f, transform.localScale.z);
+        transform.localScale = new Vector3(transform.localScale.x * 2.0f, transform.localScale.y * 2.0f, transform.localScale.z);
     }
 }
