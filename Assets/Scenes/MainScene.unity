@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 441775422}
   - component: {fileID: 441775421}
   - component: {fileID: 441775420}
+  - component: {fileID: 441775423}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Flower
@@ -492,7 +493,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02925253, y: 0.6314546}
+  m_Offset: {x: 0.02492436, y: 0.6314546}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -503,7 +504,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6795814, y: 1.3923371}
+  m_Size: {x: 0.13514279, y: 1.3923371}
   m_EdgeRadius: 0
 --- !u!4 &441775422
 Transform:
@@ -522,6 +523,27 @@ Transform:
   - {fileID: 958284427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &441775423
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441775419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e20c74ae241ad0542820fa0563ed7677, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &811425380
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +578,7 @@ MonoBehaviour:
   jumpForce: 6
   speed: 5
   groundCheck: {fileID: 897799507}
+  preventFall: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 64

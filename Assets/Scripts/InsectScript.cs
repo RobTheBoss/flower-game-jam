@@ -63,6 +63,7 @@ public class InsectScript : MonoBehaviour
         if (collision.tag == "Flower")
         {
             Debug.Log("Flower touchdown");
+            flowerScript.Shake();
             StartCoroutine(flowerDamage());
             //touches the flower, waits 5 seconds and lowers the Growth Progress by 10
         }

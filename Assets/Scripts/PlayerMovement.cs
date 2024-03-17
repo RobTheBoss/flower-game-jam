@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     float xInput;
     bool canJump = false;
+    public bool preventFall = false;
 
     [SerializeField] LayerMask groundMask;
 
@@ -35,13 +36,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            if (!OnGround()) 
+            if (!OnGround() && !preventFall) 
                 return;
 
             canJump = true;
         }
 
-        Debug.DrawRay(groundCheck.transform.position, Vector2.down * 0.05f);
+        if (!preventFall) return;
+
+        if (rb.velocity.y < 0)
+            rb.velocity = new Vector2(rb.velocity.x, 0.0f);
     }
 
     private void FixedUpdate()

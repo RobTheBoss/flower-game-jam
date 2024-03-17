@@ -8,6 +8,12 @@ public class FlowerScript : MonoBehaviour
     public float growthProgress = 0.0f;
     [SerializeField] GameManager gm;
     public Transform topOfFlower;
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -19,7 +25,8 @@ public class FlowerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           inBounds = true;
+            inBounds = true;
+            collision.gameObject.GetComponent<PlayerMovement>().preventFall = true;
         }
     }
 
@@ -28,6 +35,7 @@ public class FlowerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inBounds = false;
+            collision.gameObject.GetComponent<PlayerMovement>().preventFall = false;
         }
     }
 
@@ -39,5 +47,10 @@ public class FlowerScript : MonoBehaviour
         gm.UpdateHud();
 
         transform.localScale = new Vector3(transform.localScale.x * 2.0f, transform.localScale.y * 2.0f, transform.localScale.z);
+    }
+
+    public void Shake()
+    {
+        anim.Play("FlowerShake", -1, 0f);
     }
 }
