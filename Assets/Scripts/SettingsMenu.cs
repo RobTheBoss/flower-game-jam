@@ -17,7 +17,7 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
-    // To play the Level 2.
+    // Loading the Scene.
     public void PlayGame()
     {
 
