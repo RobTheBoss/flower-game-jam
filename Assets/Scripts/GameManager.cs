@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI insectAttackingAmountText;
     [SerializeField] TMPro.TextMeshProUGUI insectsAmountText;
     [SerializeField] FlowerScript flowerScript;
+    public GameObject button;
 
     public int insectParts = 0;
     public int insectsAttacking = 0;
@@ -42,4 +43,5 @@ public class GameManager : MonoBehaviour
         fertilizerAmountText.text = fertilizier.ToString();
         insectsAmountText.text = insectParts.ToString();
     }
+   
 }
