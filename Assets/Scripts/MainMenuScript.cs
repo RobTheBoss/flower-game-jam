@@ -47,19 +47,7 @@ public class MainMenuScript : MonoBehaviour
     {
 
         // Loading the Scene.
-<<<<<<< HEAD
-        Application.Quit();
-=======
-        SceneManager.LoadScene("MainMenuUIScene");
-
-    }
-
-    public void EndScene()
-    {
-
-        // Loading the Scene.
-        SceneManager.LoadScene("EndCutscene");
->>>>>>> 749e2cc73d5d0025b1dcff2bb0a543fae687feff
+        SceneManager.LoadScene("MainMenuScene");
 
     }
 }
