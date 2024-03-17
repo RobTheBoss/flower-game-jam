@@ -10,6 +10,9 @@ public class FlowerScript : MonoBehaviour
     public Transform topOfFlower;
     private Animator anim;
 
+    public AudioSource FlowerGrowAudio;
+    public AudioSource FlowerDamageAudio;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -51,6 +54,7 @@ public class FlowerScript : MonoBehaviour
     {
         if (gm.fertilizier <= 0) return;
 
+        FlowerGrowAudio.Play();
         gm.fertilizier -= 1;
 
         growthProgress += 10.0f;
@@ -74,6 +78,7 @@ public class FlowerScript : MonoBehaviour
 
     public void TakeDamage(float amount_)
     {
+        FlowerDamageAudio.Play();
         growthProgress -= amount_;
         if (growthProgress < 0.0f)
             growthProgress = 0.0f;

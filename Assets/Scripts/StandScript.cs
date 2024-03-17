@@ -7,6 +7,8 @@ public class StandScript : MonoBehaviour
     private bool inBounds = false;
     [SerializeField] GameManager gm;
 
+    public AudioSource StandAudio;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow) && inBounds)
@@ -31,6 +33,7 @@ public class StandScript : MonoBehaviour
 
     private void Interact()
     {
+        StandAudio.Play();
         if (gm.insectParts < 2) return;
 
         gm.insectParts -= 2;
