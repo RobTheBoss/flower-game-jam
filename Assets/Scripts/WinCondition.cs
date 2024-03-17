@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
@@ -25,9 +24,9 @@ public class WinCondition : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            // Loading the Scene.
-            SceneManager.LoadScene("EndCutscene");
-
+            Debug.Log("Player Wins!");
+            youWin.enabled = true;
+            restartButton.SetActive(true);
         }
     }
 }
