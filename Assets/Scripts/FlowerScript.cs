@@ -16,6 +16,10 @@ public class FlowerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "Insect")
+        {
+            gm.insectsAttacking++;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
            inBounds = true;
@@ -24,6 +28,10 @@ public class FlowerScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == "Insect")
+        {
+            gm.insectsAttacking--;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             inBounds = false;
