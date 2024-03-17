@@ -10,6 +10,9 @@ public class FlowerScript : MonoBehaviour
     public Transform topOfFlower;
     private Animator anim;
 
+    public AudioSource audioplayer;
+    public AudioSource audioplayer1;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -17,6 +20,7 @@ public class FlowerScript : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.DownArrow) && inBounds)
             Interact();
     }
@@ -32,6 +36,7 @@ public class FlowerScript : MonoBehaviour
             inBounds = true;
             collision.gameObject.GetComponent<PlayerMovement>().preventFall = true;
         }
+     
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,9 +54,12 @@ public class FlowerScript : MonoBehaviour
 
     private void Interact()
     {
+        
         if (gm.fertilizier <= 0) return;
 
         gm.fertilizier -= 1;
+
+        audioplayer.Play();
 
         growthProgress += 10.0f;
         if (growthProgress > 100.0f)
@@ -74,6 +82,7 @@ public class FlowerScript : MonoBehaviour
 
     public void TakeDamage(float amount_)
     {
+        audioplayer1.Play();
         growthProgress -= amount_;
         if (growthProgress < 0.0f)
             growthProgress = 0.0f;

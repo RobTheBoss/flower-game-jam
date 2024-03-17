@@ -20,6 +20,8 @@ public class InsectScript : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 targetPosition;
 
+    public AudioSource audioplayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +69,8 @@ public class InsectScript : MonoBehaviour
             StartCoroutine(flowerDamage());
             //touches the flower, waits 5 seconds and lowers the Growth Progress by 10
         }
+        audioplayer.Play();
 
-        
     }
     private IEnumerator flowerDamage()
         {
