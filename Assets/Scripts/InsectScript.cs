@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
@@ -54,10 +55,18 @@ public class InsectScript : MonoBehaviour
         }
         if (collision.tag == "Flower")
         {
-            new WaitForSeconds(5);
-            flowerScript.growthProgress -= -10.0f;
-            Destroy(this.gameObject);
+            Debug.Log("Flower touchdown");
+            StartCoroutine(flowerDamage());
             //touches the flower, waits 5 seconds and lowers the Growth Progress by 10
         }
+
+        
     }
+    private IEnumerator flowerDamage()
+        {
+            yield return new WaitForSeconds(10);
+            flowerScript.growthProgress -= 10.0f;
+            Destroy(this.gameObject);
+            Debug.Log("Insect died and applied 10 damage. Total Growth Progress = " + flowerScript.growthProgress);
+        }
 }
