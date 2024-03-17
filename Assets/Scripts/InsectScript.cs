@@ -73,9 +73,9 @@ public class InsectScript : MonoBehaviour
     private IEnumerator flowerDamage()
         {
         if (transform.position.y < 3.6)
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
         else
-            yield return new WaitForSeconds(9);
+            yield return new WaitForSeconds(8);
             flowerScript.TakeDamage(10.0f);
             Destroy(this.gameObject);
             Debug.Log("Insect died and applied 10 damage. Total Growth Progress = " + flowerScript.growthProgress);
