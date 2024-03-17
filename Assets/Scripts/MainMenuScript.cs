@@ -30,7 +30,7 @@ public class MainMenuScript : MonoBehaviour
     {
 
         // Loading the Scene.
-        SceneManager.LoadScene("SettingUIMenuScene");
+        SceneManager.LoadScene("SettingsMenuUIScene");
 
     }
 
