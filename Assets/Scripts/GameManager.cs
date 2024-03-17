@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI fertilizerAmountText;
     [SerializeField] TMPro.TextMeshProUGUI insectAttackingAmountText;
     [SerializeField] TMPro.TextMeshProUGUI insectsAmountText;
+    [SerializeField] FlowerScript flowerScript;
 
     public int insectParts = 0;
     public int insectsAttacking = 0;
@@ -22,7 +23,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (insectParts > 3)
+            insectParts = 3;
+        if (fertilizier > 2)
+            fertilizier = 2;
+
         UpdateHud();
+
+        if (insectsAttacking > 0)
+            flowerScript.Shake();
+        else
+            flowerScript.UnShake();
     }
 
     public void UpdateHud()

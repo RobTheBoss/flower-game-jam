@@ -52,13 +52,32 @@ public class FlowerScript : MonoBehaviour
         if (gm.fertilizier <= 0) return;
 
         gm.fertilizier -= 1;
+
+        growthProgress += 10.0f;
+        if (growthProgress > 100.0f)
+            growthProgress = 100.0f;
+
         gm.UpdateHud();
 
-        transform.localScale = new Vector3(transform.localScale.x * 2.0f, transform.localScale.y * 2.0f, transform.localScale.z);
+        transform.localScale = new Vector3(growthProgress * 0.25f + 1, growthProgress * 0.25f + 1, transform.localScale.z);
     }
 
     public void Shake()
     {
-        anim.Play("FlowerShake", -1, 0f);
+        anim.SetBool("Shake", true);
+    }
+
+    public void UnShake()
+    {
+        anim.SetBool("Shake", false);
+    }
+
+    public void TakeDamage(float amount_)
+    {
+        growthProgress -= amount_;
+        if (growthProgress < 0.0f)
+            growthProgress = 0.0f;
+
+        transform.localScale = new Vector3(growthProgress * 0.25f + 1, growthProgress * 0.25f + 1, transform.localScale.z);
     }
 }
