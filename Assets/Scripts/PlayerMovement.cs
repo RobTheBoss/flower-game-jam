@@ -42,10 +42,10 @@ public class PlayerMovement : MonoBehaviour
             canJump = true;
         }
 
-        if (!preventFall) return;
+        //if (!preventFall) return;
 
-        if (rb.velocity.y < 0)
-            rb.velocity = new Vector2(rb.velocity.x, 0.0f);
+        //if (rb.velocity.y < 0)
+        //    rb.velocity = new Vector2(rb.velocity.x, -5.0f);
     }
 
     private void FixedUpdate()

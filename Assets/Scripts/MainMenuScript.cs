@@ -26,6 +26,14 @@ public class MainMenuScript : MonoBehaviour
 
     }
 
+    public void Intro()
+    {
+
+        // Loading the Scene.
+        SceneManager.LoadScene("IntroCutscene");
+
+    }
+
     public void SettingsMenu()
     {
 
