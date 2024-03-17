@@ -58,5 +58,10 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("EndCutscene");
 
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
 
