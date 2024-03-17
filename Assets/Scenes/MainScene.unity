@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 441775420}
   m_Layer: 0
   m_Name: FlowerPlaceholder
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1738,7 +1738,7 @@ GameObject:
   - component: {fileID: 1489260696}
   m_Layer: 0
   m_Name: Sprites
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
